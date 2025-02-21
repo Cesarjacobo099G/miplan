@@ -1,0 +1,26 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Crear nuevos colores e incluir en el mapa
+$custom-colors: (
+  "principal": #363d8a,
+  "titulos": #ffffff,
+  "fondoCanvas": #f4f7ffec,
+  "botones": #137dff,
+  "intenso": #285996,
+  "letras": #ffffff,
+  "letrasUsuario": #122f47,
+  "grad": #3073bb,
+  "grad2": #161717,
+  "botones2": #29b0ff
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Es para remover algun color
+//$theme-colors: map-remove($theme-colors, "pasteleria");
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss"

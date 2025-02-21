@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/tema.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+  <title>Anxity</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="./css/user.css">
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth'
+      });
+      calendar.render();
+    });
+
+
+    (function () {
+      window.onload = function () {
+        const preloader = document.querySelector('.page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 1000);
+      };
+    })();
+  </script>
+</head>
+
+<body>
+
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div><span>Cargando...</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="navbar sticky-top bg-principal flex-md-nowrap p-0 shadow" data-bs-theme="ligth">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white nabla" href="#">Anxity</a>
+
+    <ul class="navbar-nav flex-row d-md-none">
+      <li class="nav-item text-nowrap">
+        <button class="nav-link px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch"
+          aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg>
+        </button>
+      </li>
+      <li class="nav-item text-nowrap">
+        <button class="nav-link px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+    <div id="navbarSearch" class="navbar-search w-100 collapse">
+      <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Buscar" aria-label="Search">
+    </div>
+  </header>
+  <!-- FIN HEADER -->
+
+
+  <!-- SIDEBAR -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="sidebar border-right col-md-3 col-lg-2 p-0 bg-principal">
+        <div class="offcanvas-md offcanvas-end bg-principal" tabindex="-1" id="sidebarMenu"
+          aria-labelledby="sidebarMenuLabel">
+          <div class="offcanvas-header bg-principal">
+            <h5 class="offcanvas-title nabla text-letras" id="sidebarMenuLabel">Anxity</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto bg-principal">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" aria-current="page"
+                  href="#" data-target="#profile">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person" viewBox="0 0 16 16">
+                    <path
+                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                  </svg>
+                  Cesarjacobo099
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#lessons">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chat-right" viewBox="0 0 16 16">
+                    <path
+                      d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                  </svg>
+                  Lecciones
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#quizzes">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+                    <path
+                      d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+                    <path
+                      d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+                  </svg>
+                  Quizzes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#forums">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-card-text" viewBox="0 0 16 16">
+                    <path
+                      d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                    <path
+                      d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5" />
+                  </svg>
+                  Foros
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#calendario">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-calendar4" viewBox="0 0 16 16">
+                    <path
+                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                  </svg>
+                  Calendario
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#ejercicios">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-puzzle" viewBox="0 0 16 16">
+                    <path
+                      d="M3.112 3.645A1.5 1.5 0 0 1 4.605 2H7a.5.5 0 0 1 .5.5v.382c0 .696-.497 1.182-.872 1.469a.5.5 0 0 0-.115.118l-.012.025L6.5 4.5v.003l.003.01q.005.015.036.053a.9.9 0 0 0 .27.194C7.09 4.9 7.51 5 8 5c.492 0 .912-.1 1.19-.24a.9.9 0 0 0 .271-.194.2.2 0 0 0 .039-.063v-.009l-.012-.025a.5.5 0 0 0-.115-.118c-.375-.287-.872-.773-.872-1.469V2.5A.5.5 0 0 1 9 2h2.395a1.5 1.5 0 0 1 1.493 1.645L12.645 6.5h.237c.195 0 .42-.147.675-.48.21-.274.528-.52.943-.52.568 0 .947.447 1.154.862C15.877 6.807 16 7.387 16 8s-.123 1.193-.346 1.638c-.207.415-.586.862-1.154.862-.415 0-.733-.246-.943-.52-.255-.333-.48-.48-.675-.48h-.237l.243 2.855A1.5 1.5 0 0 1 11.395 14H9a.5.5 0 0 1-.5-.5v-.382c0-.696.497-1.182.872-1.469a.5.5 0 0 0 .115-.118l.012-.025.001-.006v-.003a.2.2 0 0 0-.039-.064.9.9 0 0 0-.27-.193C8.91 11.1 8.49 11 8 11s-.912.1-1.19.24a.9.9 0 0 0-.271.194.2.2 0 0 0-.039.063v.003l.001.006.012.025c.016.027.05.068.115.118.375.287.872.773.872 1.469v.382a.5.5 0 0 1-.5.5H4.605a1.5 1.5 0 0 1-1.493-1.645L3.356 9.5h-.238c-.195 0-.42.147-.675.48-.21.274-.528.52-.943.52-.568 0-.947-.447-1.154-.862C.123 9.193 0 8.613 0 8s.123-1.193.346-1.638C.553 5.947.932 5.5 1.5 5.5c.415 0 .733.246.943.52.255.333.48.48.675.48h.238zM4.605 3a.5.5 0 0 0-.498.55l.001.007.29 3.4A.5.5 0 0 1 3.9 7.5h-.782c-.696 0-1.182-.497-1.469-.872a.5.5 0 0 0-.118-.115l-.025-.012L1.5 6.5h-.003a.2.2 0 0 0-.064.039.9.9 0 0 0-.193.27C1.1 7.09 1 7.51 1 8s.1.912.24 1.19c.07.14.14.225.194.271a.2.2 0 0 0 .063.039H1.5l.006-.001.025-.012a.5.5 0 0 0 .118-.115c.287-.375.773-.872 1.469-.872H3.9a.5.5 0 0 1 .498.542l-.29 3.408a.5.5 0 0 0 .497.55h1.878c-.048-.166-.195-.352-.463-.557-.274-.21-.52-.528-.52-.943 0-.568.447-.947.862-1.154C6.807 10.123 7.387 10 8 10s1.193.123 1.638.346c.415.207.862.586.862 1.154 0 .415-.246.733-.52.943-.268.205-.415.39-.463.557h1.878a.5.5 0 0 0 .498-.55l-.001-.007-.29-3.4A.5.5 0 0 1 12.1 8.5h.782c.696 0 1.182.497 1.469.872.05.065.091.099.118.115l.025.012.006.001h.003a.2.2 0 0 0 .064-.039.9.9 0 0 0 .193-.27c.14-.28.24-.7.24-1.191s-.1-.912-.24-1.19a.9.9 0 0 0-.194-.271.2.2 0 0 0-.063-.039H14.5l-.006.001-.025.012a.5.5 0 0 0-.118.115c-.287.375-.773.872-1.469.872H12.1a.5.5 0 0 1-.498-.543l.29-3.407a.5.5 0 0 0-.497-.55H9.517c.048.166.195.352.463.557.274.21.52.528.52.943 0 .568-.447.947-.862 1.154C9.193 5.877 8.613 6 8 6s-1.193-.123-1.638-.346C5.947 5.447 5.5 5.068 5.5 4.5c0-.415.246-.733.52-.943.268-.205.415-.39.463-.557z" />
+                  </svg>
+                  Ejercicios
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav flex-column mb-auto">
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#especialistas">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-check-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                  </svg>
+                  Especialistas
+                </a>
+              </li>
+            </ul>
+
+            <hr class="my-3">
+
+            <ul class="nav flex-column mb-auto">
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  data-target="#config">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                    <path
+                      d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+                  </svg>
+                  Configuración
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="../login.html">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                    <path fill-rule="evenodd"
+                      d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                  </svg>
+                  Cerrar sesión
+                </a>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2 josefin-sans">¡Buenas noches!</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+              <input type="checkbox" class="form-check-input" id="theme-mode">
+              <label class="form-check-label d-none d-sm-block" for="theme-mode"></label>
+              <label class="form-check-label d-none d-sm-block" for="theme-mode"></label>
+            </div>
+            <button type="button"
+              class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+
+
+
+        <!--ESTA ES LA SECCIÓN DE LECCIONES-->
+
+
+        <main class="content content-section" id="lessons">
+          <div class="container-fluid p-0">
+            <h2 class="h3 mb-3 josefin-sans">Lecciones</h2>
+
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Entendiendo la Ansiedad</h5>
+                    <div class="badge bg-success my-2">Terminado</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Explora qué es la ansiedad, sus causas y cómo afecta tu vida diaria.
+                      Aprende a identificar sus síntomas y a diferenciar entre ansiedad normal y trastornos de ansiedad.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">100%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 100%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Técnicas de Respiración para la Ansiedad</h5>
+                    <div class="badge bg-warning my-2">En progreso</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Aprende ejercicios de respiración simples y efectivos para calmarte en momentos de ansiedad.
+                      Descubre cómo usar la respiración para reducir el estrés y mejorar tu bienestar.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">75%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 75%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Estrategias para Manejar el Estrés</h5>
+                    <div class="badge bg-success my-2">Terminado</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Descubre métodos prácticos para manejar el estrés en tu vida cotidiana.
+                      Desde la organización personal hasta el autocuidado, te damos herramientas para mantener el estrés
+                      bajo control.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">100%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 100%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Combatiendo los Pensamientos Negativos</h5>
+                    <div class="badge bg-warning my-2">En progreso</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Aprende a identificar y desafiar los pensamientos negativos que alimentan la ansiedad.
+                      Desarrolla habilidades para reemplazarlos con pensamientos más positivos y realistas.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">50%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 50%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="../assets/img/5132551-Photoroom.png" alt="Banner">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Mindfulness para la Ansiedad</h5>
+                    <div class="badge bg-warning my-2">En progreso</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Introducción al mindfulness: técnicas de atención plena que te ayudarán a estar presente en el
+                      momento y reducir los niveles de ansiedad.
+                      Prácticas para incorporar en tu día a día.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">65%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 65%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+                  <img class="card-img-top"
+                    src="../assets/img/renderizado-3d-personas-caminando-sobre-cerebro-humano-Photoroom.png"
+                    alt="Banner">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Construyendo una Red de Apoyo</h5>
+                    <div class="badge bg-danger my-2">Sin empezar</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>La importancia de contar con una red de apoyo en tu vida.
+                      Aprende cómo construir y mantener relaciones saludables que te ayuden a enfrentar la ansiedad.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">0%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 0%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="../assets/img/5883077-Photoroom.png" alt="Banner">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Terapias y Recursos Profesionales</h5>
+                    <div class="badge bg-success my-2">Terminado</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Explora diferentes opciones de terapia y recursos profesionales disponibles para tratar la
+                      ansiedad.
+                      Conoce cómo elegir el apoyo adecuado para ti.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">100%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 100%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="../assets/img/5132551-Photoroom.png" alt="Banner">
+
+                  <div class="card-header px-4 pt-4">
+                    <div class="card-actions float-end">
+                      <div class="dropdown position-relative">
+                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end bg-principal">
+                          <a class="dropdown-item bg-principal text-letras josefin-sans" href="#">Comenzar</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title mb-0 josefin-sans">Creando un Plan Personal de Autocuidado</h5>
+                    <div class="badge bg-danger my-2">Sin empezar</div>
+                  </div>
+                  <div class="card-body px-4 pt-2">
+                    <p>Diseña tu propio plan de autocuidado para manejar la ansiedad de manera efectiva.
+                      Incluye prácticas diarias y estrategias a largo plazo para cuidar de tu salud mental.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-4 pb-4">
+                      <p class="mb-2 fw-bold">Progreso <span class="float-end">0%</span></p>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 0%;">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+
+
+
+        <main class="content content-section" id="especialistas">
+          <div class="container-fluid p-0">
+
+            <h1 class="h3 mb-3 josefin-sans">Mensajes</h1>
+
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-12 col-lg-5 col-xl-3 border-end list-group">
+
+                  <div class="px-4 d-none d-md-block">
+                    <div class="d-flex align-items-start align-items-center">
+                      <div class="flex-grow-1">
+                        <input type="text" class="form-control my-3" placeholder="Buscar...">
+                      </div>
+                    </div>
+                  </div>
+
+                  <a href="#" class="list-group-item list-group-item-action border-0">
+                    <div class="badge bg-success float-end">5</div>
+                    <div class="d-flex align-items-start">
+                      <img src="./img/diego.jpg" class="rounded-circle me-1" width="40" height="40">
+                      <div class="flex-grow-1 ms-3">
+                        Diego Tapia
+                        <div class="small"><span class="fas fa-circle chat-online"></span> En linea</div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action border-0">
+                    <div class="badge bg-success float-end">2</div>
+                    <div class="d-flex align-items-start">
+                      <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                      <div class="flex-grow-1 ms-3">
+                        Iván Aldair
+                        <div class="small"><span class="fas fa-circle chat-online"></span> En linea</div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action border-0">
+                    <div class="d-flex align-items-start">
+                      <img src="./img/yair.jpg" class="rounded-circle me-1" alt="Stacie Hall" width="40" height="40">
+                      <div class="flex-grow-1 ms-3">
+                        Yair Luna
+                        <div class="small"><span class="fas fa-circle chat-offline"></span> Desconectado</div>
+                      </div>
+                    </div>
+                  </a>
+
+
+                  <hr class="d-block d-lg-none mt-1 mb-0" />
+                </div>
+
+
+                <div class="col-12 col-lg-7 col-xl-9">
+                  <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                    <div class="d-flex align-items-start align-items-center py-1">
+                      <div class="position-relative">
+                        <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                      </div>
+                      <div class="flex-grow-1 ps-3">
+                        <strong>Iván Aldair</strong>
+                        <div class="text-muted small"><em>Escribiendo...</em></div>
+                      </div>
+                      <div>
+                        <button class="btn btn-principal btn-sm me-1 px-3"><i class="bi bi-telephone"
+                            data-lucide="phone"></i></button>
+                        <button class="btn btn-intenso btn-sm me-1 px-3 d-none d-md-inline-block"><i
+                            class="bi bi-camera-video" data-lucide="video"></i></button>
+                        <button class="btn btn-light border btn-sm px-3"><i class="bi bi-three-dots"
+                            data-lucide="more-horizontal"></i></button>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="position-relative">
+                    <div class="chat-messages p-4">
+
+                      <div class="chat-message-right pb-4">
+                        <div>
+                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:33 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
+                          <div class="fw-bold mb-1">Tú</div>
+                          Hola doctor perdone la hora, espero se encuentre bien, necesito de su ayuda.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:34 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
+                          <div class="fw-bold mb-1">Iván Aldair</div>
+                          Hola César, no te preocupes. ¿Cómo puedo ayudarte?
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right pb-4">
+                        <div>
+                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:35 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
+                          <div class="fw-bold mb-1">Tú</div>
+                          Tuve un problema de ansiedad.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:36 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
+                          <div class="fw-bold mb-1">Iván Aldair</div>
+                          Cuentame que es lo que pasa.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:37 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
+                          <div class="fw-bold mb-1">Bertha Martin</div>
+                          Recuerda las respiraciones.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right pb-4">
+                        <div>
+                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:38 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
+                          <div class="fw-bold mb-1">Tú</div>
+                          No he podido domir debido al problema que le platiqué, me siento abrumado y desesperado.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-left pb-4">
+                        <div>
+                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:39 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
+                          <div class="fw-bold mb-1">Iván Aldair</div>
+                          ¿Puedes acceder a una llamada?
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right pb-4">
+                        <div>
+                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:40 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
+                          <div class="fw-bold mb-1">You</div>
+                          Si, doctor.
+                        </div>
+                      </div>
+
+                      <div class="chat-message-right pb-4">
+                        <div>
+                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
+                          <div class="text-muted small text-nowrap mt-2">2:41 am</div>
+                        </div>
+                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
+                          <div class="fw-bold mb-1">Iván Aldair</div>
+                          Enseguida la realizo.
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="flex-grow-0 py-3 px-4 border-top">
+                    <div class="input-group">
+                      <input type="text" class="form-control form-control-sm" placeholder="Escribe un mensaje">
+                      <button class="btn btn-principal btn-sm"><i class="bi bi-send"></i></button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+
+
+
+        <main class="content content-section" id="config">
+          <div class="container-fluid p-0">
+
+            <h1 class="h3 mb-3 josefin-sans">Configuración</h1>
+
+            <div class="row">
+              <div class="col-md-3 col-xl-2">
+
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Configuración de perfil</h5>
+                  </div>
+
+                  <div class="list-group list-group-flush" role="tablist">
+                    <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account"
+                      role="tab">
+                      Cuenta
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password" role="tab">
+                      Contraseña
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
+                      Privacidad y Seguridad
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
+                      Notificaciones
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
+                      Tu información
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
+                      Borrar cuenta
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-9 col-xl-10">
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="account" role="tabpanel">
+
+                    <div class="card mb-3">
+                      <div class="card-header">
+                        <div class="card-actions float-end">
+                          <div class="dropdown position-relative">
+                            <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                              <i class="bi bi-three-dots"></i>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                        </div>
+                        <h5 class="card-title mb-0">Información publica</h5>
+                      </div>
+                      <div class="card-body">
+                        <form>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="mb-3">
+                                <label for="inputUsername" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="inputUsername"
+                                  placeholder="Nombre de usuario">
+                              </div>
+                              <div class="mb-3">
+                                <label for="inputUsername" class="form-label">Biografía</label>
+                                <textarea rows="2" class="form-control" id="inputBio"
+                                  placeholder="Di algo sobre ti"></textarea>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="text-center">
+                                <img src="./img/perrito_38.jpg" class="rounded-circle img-responsive mt-2" width="128"
+                                  height="128" />
+                                <div class="mt-2">
+                                  <span class="btn btn-principal"><i class="fas fa-upload"></i> Subir</span>
+                                </div>
+                                <small>Para obtener mejores resultados, utilice una imagen de al menos 128 px por 128 px
+                                  en formato .jpg</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <button type="submit" class="btn btn-principal">Guardar cambios</button>
+                        </form>
+
+                      </div>
+                    </div>
+
+                    <div class="card mb-3">
+                      <div class="card-header">
+                        <div class="card-actions float-end">
+                          <div class="dropdown position-relative">
+                            <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                              <i class="bi bi-three-dots"></i>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                        </div>
+                        <h5 class="card-title mb-0">Información privada</h5>
+                      </div>
+                      <div class="card-body">
+                        <form>
+                          <div class="row">
+                            <div class="mb-3 col-md-6">
+                              <label for="inputFirstName" class="form-label">Primer nombre</label>
+                              <input type="text" class="form-control" id="inputFirstName" placeholder="Nombres">
+                            </div>
+                            <div class="mb-3 col-md-6">
+                              <label for="inputLastName" class="form-label">Apellidos</label>
+                              <input type="text" class="form-control" id="inputLastName" placeholder="Apellidos">
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="inputEmail4" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                          </div>
+                          <div class="mb-3">
+                            <label for="inputAddress" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Av.Benito Juarez">
+                          </div>
+                          <div class="mb-3">
+                            <label for="inputAddress2" class="form-label">Celular</label>
+                            <input type="number" class="form-control" id="phone" placeholder="+52">
+                          </div>
+                          <div class="row">
+                            <div class="mb-3 col-md-6">
+                              <label for="inputCity" class="form-label">Ciudad</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="mb-3 col-md-4">
+                              <label for="inputState" class="form-label">Estado</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Elegir..</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                          </div>
+                          <button type="submit" class="btn btn-principal">Guardar cambios</button>
+                        </form>
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="tab-pane fade" id="password" role="tabpanel">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Contraseña</h5>
+
+                        <form>
+                          <div class="mb-3">
+                            <label for="inputPasswordCurrent" class="form-label">Contraseña actual</label>
+                            <input type="password" class="form-control" id="inputPasswordCurrent">
+                            <small><a href="#">
+                                ¿Olvidaste tu contraseña?</a></small>
+                          </div>
+                          <div class="mb-3">
+                            <label for="inputPasswordNew" class="form-label">Nueva contraseña</label>
+                            <input type="password" class="form-control" id="inputPasswordNew">
+                          </div>
+                          <div class="mb-3">
+                            <label for="inputPasswordNew2" class="form-label">Verificar contraseña</label>
+                            <input type="password" class="form-control" id="inputPasswordNew2">
+                          </div>
+                          <button type="submit" class="btn btn-principal">Guardar cambios</button>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+
+
+        <main class="content" id="calendario">
+          <div class="container-fluid p-0">
+
+            <h1 class="h3 mb-3 josefin-sans">Calendario</h1>
+
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title josefin-sans">Agenda tus actividades</h5>
+              </div>
+              <div class="card-body">
+                <div id="calendar"></div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+
+        <canvas class="my-4 w-100" id="myChart" width="900" height="405"></canvas>
+
+
+      </main>
+    </div>
+  </div>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/secciones.js"></script>
+  <script src="./js/calendar.js"></script>
+  <script>
+    // Chat
+    document.addEventListener("DOMContentLoaded", function () {
+      $('.chat-messages').scrollTop($('.chat-messages')[0].scrollHeight);
+    });
+  </script>
+</body>
+
+</html>

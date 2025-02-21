@@ -1,0 +1,23 @@
+{
+  "name": "pasteleriajireh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fullcalendar/bootstrap": "^6.1.14",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/list": "^6.1.14",
+    "@fullcalendar/timegrid": "^6.1.14",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "fullcalendar": "^6.1.15"
+  }
+}

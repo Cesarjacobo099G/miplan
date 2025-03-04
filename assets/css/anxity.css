@@ -117,7 +117,7 @@
 
 .offcanvas-end .offcanvas-header {
   text-align: left;
-  border-bottom: 1px solid rgb(52, 121, 216);
+  border-bottom: 1px solid rgb(12, 59, 126);
 }
 
 .offcanvas-end .offcanvas-body {
@@ -364,7 +364,7 @@ section .animate {
 }
 
 .hov:hover a {
-  color: #fff024; 
+  color: #4524ff; 
   text-decoration: underline; 
 }
 
@@ -397,6 +397,6 @@ section .animate {
 }
 
 .res:hover {
-  color: #fff024; 
+  color: #ff2b8a; 
   font-weight: bold; 
 }

@@ -11,12 +11,28 @@
   <link rel="stylesheet" href="./assets/css/anxity.css">
   <link rel="stylesheet" href="./assets/css/fondo.css">
   <script src="https://kit.fontawesome.com/c6b4c8e9e1.js" crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      window.onload = function () {
+        const preloader = document.querySelector('.page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 1000);
+      };
+    })();
+  </script>
 </head>
 
 <body class="d-flex h-100  text-bg-principal">
+  <!--LOADING-->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div><span>Cargando...</span>
+    </div>
+  </div>
   <svg class="fondo" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100">
     <defs>
-
       <!-- Gradiente Lineal para el primer path -->
       <linearGradient id="gradienteAzul" x1="100%" y1="100%" x2="0%" y2="0%">
         <stop offset="0%" style="stop-color:rgb(165, 162, 255); stop-opacity:1" />
@@ -38,7 +54,6 @@
         <stop offset="100%" style="stop-color:#1f4f8b; stop-opacity:1" />
       </radialGradient>
     </defs>
-
     <!-- Usar los Gradientes en los Paths -->
     <path fill="url(#gradienteAzul)" class="naranja"
       d="m38.52809,-5c-12.1832,-9.7 -32.04489,-14.1 -47.29949,-5c-19.75931,11.8 -24.05926,41.1 -10.85226,59c15.86888,21.5 53.8518,22 68.79926,2.3c12.28558,-16.3 6.44993,-42.8 -10.6475,-56.3z" />
@@ -50,16 +65,20 @@
       d="m101.37962,63.69679c-10.14754,-6.47895 -23.25478,-3.29258 -31.18255,2.12425c-16.27835,11.36472 -20.7179,39.82961 -8.03347,50.76948s37.94758,4.14228 47.03808,-13.27654c6.44792,-12.53305 4.75666,-31.65126 -7.82206,-39.61719z" />
   </svg>
 
+
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <!-- HEADER -->
     <header class="mb-auto py-3">
       <div class="d-flex justify-content-between align-items-center">
-        <a href="./index.html" class="nabla text-decoration-none"><h3 class="mb-0 nabla">MIPLAN</h3></a>
+        <a href="./index.html" class="nabla text-decoration-none">
+          <h3 class="mb-0 nabla">MIPLAN</h3>
+        </a>
         <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <i class="bi bi-list text-titulos"></i>
         </button>
         <nav class="nav nav-masthead justify-content-center d-none d-md-flex">
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="./index.html">Inicio</a>
           <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="./apoyo.html">Apoyo</a>
           <a class="nav-link fw-bold py-1 px-0" href="./blog.html">Blog</a>
           <a class="nav-link fw-bold py-1 px-0" href="./descubrir.html">Descubrir</a>
@@ -69,10 +88,10 @@
     <!-- FIN HEADER -->
 
     <!-- HEADER OFFCANVAS -->
-    <div class="offcanvas offcanvas-end bg-fondoCanvas" tabindex="-1" id="offcanvasNavbar"
+    <div class="offcanvas offcanvas-end bg-principal" tabindex="-1" id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title text-start nabla" id="offcanvasNavbarLabel">Anxity</h5>
+        <h5 class="offcanvas-title text-start nabla" id="offcanvasNavbarLabel">MIPLAN</h5>
         <svg xmlns="http://www.w3.org/2000/svg" type="button" data-bs-dismiss="offcanvas" width="16" height="16"
           fill="currentColor" class="bi bi-x-lg btn-close text-reset text-titulos" aria-label="Close"
           viewBox="0 0 16 16">
@@ -82,16 +101,17 @@
       </div>
       <div class="offcanvas-body">
         <nav class="nav flex-column text-start">
-          <a class="nav-link fw-bold py-1 text-principal px-0" aria-current="page" href="./apoyo.html">Apoyo</a>
-          <a class="nav-link fw-bold py-1 text-principal px-0" href="./blog.html">Blog</a>
-          <a class="nav-link fw-bold py-1 text-principal px-0" href="./descubrir.html">Descubrir</a>
+          <a class="nav-link fw-bold py-1 text-titulos px-0" aria-current="page" href="./index.html">Inicio</a>
+          <a class="nav-link fw-bold py-1 text-titulos px-0" aria-current="page" href="./apoyo.html">Apoyo</a>
+          <a class="nav-link fw-bold py-1 text-titulos px-0" href="./blog.html">Blog</a>
+          <a class="nav-link fw-bold py-1 text-titulos px-0" href="./descubrir.html">Descubrir</a>
         </nav>
       </div>
       <!-- FOOTER OFFCANVAS -->
       <div class="offcanvas-footer">
         <a href="./login.html"
-          class="btn btn-light fw-bold rounded-pill border-intenso bg-botones text-titulos mt-3 btn-offcanvas">Inicia
-          Anxity</a>
+          class="btn fw-bold rounded-pill bg-botones text-titulos mt-3 btn-offcanvas">INICIA
+          MIPLAN</a>
       </div>
     </div>
     <!-- FIN HEADER OFFCANVAS -->
@@ -106,7 +126,10 @@
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-titulos lh-1 mb-3 titulo animate"><span class="typed"></span></h1>
-            <p class="lead sombra text-titulos animate"><b>Tu estudio, tu ritmo: organiza, crea y alcanza tus metas.</b></p>
+            <p class="lead sombra text-titulos animate"><b>Tu organizador personal para el éxito académico. 
+              Convierte el caos en organización con nosotros. <br>
+              Nuestra app está diseñada para ayudarte a organizar tu vida académica de manera eficiente y sencilla</b>
+            </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <ul class="ull animate btn-lg px-0 me-md-2">
                 <li class="lii">
@@ -133,8 +156,7 @@
     <div class="px-4 pt-5 my-5 text-center">
       <h1 class="display-4 fw-bold text-titulos">Conocete aquí</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4 text-titulos"><b>¿Te sientes abrumado? Toma nuestro test de ansiedad gratuito y
-            obtén una evaluación precisa para comenzar tu camino hacia la tranquilidad y el bienestar</b></p>
+        <p class="lead mb-4 text-titulos"><b>¿Te gustaría conocer que tan productivo eres cuando organizas tus deberes?</b></p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
           <ul class="ull btn-lg px-4 me-sm-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <li class="lii">
@@ -143,84 +165,13 @@
               </a>
             </li>
           </ul>
-
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title text-principal fs-5" id="staticBackdropLabel">Quizz</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" id="boton-quiz">Enviar</button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <!-- FIN CONTENEDOR 2 -->
 
 
-
-    <div class="container px-4 py-5" id="custom-cards">
-  
-      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden bg-gradient rounded-4 shadow-lg">
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-center">Entiende Tu Ansiedad con Información Precisa</h3>
-              <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <img src="./assets/img/5883077-Photoroom.png" alt="Bootstrap" width="32" height="32">
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden bg-gradient rounded-4 shadow-lg">
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-center">Descubre Estrategias Efectivas para Manejar la Ansiedad</h3>
-              <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <img src="./assets/img/5132551-Photoroom.png" alt="Bootstrap" width="32" height="32">
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden bg-gradient rounded-4 shadow-lg">
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-center">Conecta con Apoyo Profesional y Comunidad</h3>
-              <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <img src="./assets/img/10471869-Photoroom.png" alt="Bootstrap" width="32" height="32">
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-
-
-
-
-
-
-
+    <!--SECCIÓN 4-->
 
     <section class="sec-2">
       <div class="container col-xxl-12 px-4 py-5">
@@ -237,11 +188,11 @@
       </div>
     </section>
 
+    <!--FIN SECCIÓN 4-->
 
 
 
 
-    
 
 
 
@@ -250,7 +201,7 @@
       <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
         <div class="col mb-3">
           <a href="#" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-            <h1 class="mb-0 nabla">ANXITY</h1>
+            <h1 class="mb-0 nabla">MIPLAN</h1>
           </a>
         </div>
         <div class="col mb-3">

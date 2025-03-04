@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/tema.js"></script>
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-  <title>Anxity</title>
+  <title>MIPLAN</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="./css/user.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -45,8 +48,8 @@
   </div>
 
   <!-- HEADER -->
-  <header class="navbar sticky-top bg-principal flex-md-nowrap p-0 shadow" data-bs-theme="ligth">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white nabla" href="#">Anxity</a>
+  <header class="navbar sticky-top bg-usuario flex-md-nowrap p-0 shadow" data-bs-theme="ligth">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 nabla" href="#">MIPLAN</a>
 
     <ul class="navbar-nav flex-row d-md-none">
       <li class="nav-item text-nowrap">
@@ -80,25 +83,25 @@
   <!-- SIDEBAR -->
   <div class="container-fluid">
     <div class="row">
-      <div class="sidebar border-right col-md-3 col-lg-2 p-0 bg-principal">
-        <div class="offcanvas-md offcanvas-end bg-principal" tabindex="-1" id="sidebarMenu"
+      <div class="sidebar border-right col-md-3 col-lg-2 p-0 bg-dash">
+        <div class="offcanvas-md offcanvas-end bg-dash" tabindex="-1" id="sidebarMenu"
           aria-labelledby="sidebarMenuLabel">
-          <div class="offcanvas-header bg-principal">
-            <h5 class="offcanvas-title nabla text-letras" id="sidebarMenuLabel">Anxity</h5>
+          <div class="offcanvas-header bg-dash">
+            <h5 class="offcanvas-title nabla text-letras" id="sidebarMenuLabel">MIPLAN</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
               aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto bg-principal">
+          <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto bg-dash">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" aria-current="page"
-                  href="#" data-target="#profile">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" id="usernameDisplay"
+                  aria-current="page" href="#" data-target="#profile">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-person" viewBox="0 0 16 16">
                     <path
                       d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                   </svg>
-                  Cesarjacobo099
+
                 </a>
               </li>
               <li class="nav-item">
@@ -196,7 +199,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="../login.html">
+                <a class="nav-link d-flex align-items-center gap-2 josefin-sans text-letras" href="#"
+                  onclick="logout()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -206,8 +210,8 @@
                   </svg>
                   Cerrar sesión
                 </a>
-
               </li>
+
             </ul>
           </div>
         </div>
@@ -536,198 +540,6 @@
 
 
 
-        <main class="content content-section" id="especialistas">
-          <div class="container-fluid p-0">
-
-            <h1 class="h3 mb-3 josefin-sans">Mensajes</h1>
-
-            <div class="card">
-              <div class="row g-0">
-                <div class="col-12 col-lg-5 col-xl-3 border-end list-group">
-
-                  <div class="px-4 d-none d-md-block">
-                    <div class="d-flex align-items-start align-items-center">
-                      <div class="flex-grow-1">
-                        <input type="text" class="form-control my-3" placeholder="Buscar...">
-                      </div>
-                    </div>
-                  </div>
-
-                  <a href="#" class="list-group-item list-group-item-action border-0">
-                    <div class="badge bg-success float-end">5</div>
-                    <div class="d-flex align-items-start">
-                      <img src="./img/diego.jpg" class="rounded-circle me-1" width="40" height="40">
-                      <div class="flex-grow-1 ms-3">
-                        Diego Tapia
-                        <div class="small"><span class="fas fa-circle chat-online"></span> En linea</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action border-0">
-                    <div class="badge bg-success float-end">2</div>
-                    <div class="d-flex align-items-start">
-                      <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                      <div class="flex-grow-1 ms-3">
-                        Iván Aldair
-                        <div class="small"><span class="fas fa-circle chat-online"></span> En linea</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action border-0">
-                    <div class="d-flex align-items-start">
-                      <img src="./img/yair.jpg" class="rounded-circle me-1" alt="Stacie Hall" width="40" height="40">
-                      <div class="flex-grow-1 ms-3">
-                        Yair Luna
-                        <div class="small"><span class="fas fa-circle chat-offline"></span> Desconectado</div>
-                      </div>
-                    </div>
-                  </a>
-
-
-                  <hr class="d-block d-lg-none mt-1 mb-0" />
-                </div>
-
-
-                <div class="col-12 col-lg-7 col-xl-9">
-                  <div class="py-2 px-4 border-bottom d-none d-lg-block">
-                    <div class="d-flex align-items-start align-items-center py-1">
-                      <div class="position-relative">
-                        <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                      </div>
-                      <div class="flex-grow-1 ps-3">
-                        <strong>Iván Aldair</strong>
-                        <div class="text-muted small"><em>Escribiendo...</em></div>
-                      </div>
-                      <div>
-                        <button class="btn btn-principal btn-sm me-1 px-3"><i class="bi bi-telephone"
-                            data-lucide="phone"></i></button>
-                        <button class="btn btn-intenso btn-sm me-1 px-3 d-none d-md-inline-block"><i
-                            class="bi bi-camera-video" data-lucide="video"></i></button>
-                        <button class="btn btn-light border btn-sm px-3"><i class="bi bi-three-dots"
-                            data-lucide="more-horizontal"></i></button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="position-relative">
-                    <div class="chat-messages p-4">
-
-                      <div class="chat-message-right pb-4">
-                        <div>
-                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:33 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
-                          <div class="fw-bold mb-1">Tú</div>
-                          Hola doctor perdone la hora, espero se encuentre bien, necesito de su ayuda.
-                        </div>
-                      </div>
-
-                      <div class="chat-message-left pb-4">
-                        <div>
-                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:34 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
-                          <div class="fw-bold mb-1">Iván Aldair</div>
-                          Hola César, no te preocupes. ¿Cómo puedo ayudarte?
-                        </div>
-                      </div>
-
-                      <div class="chat-message-right pb-4">
-                        <div>
-                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:35 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
-                          <div class="fw-bold mb-1">Tú</div>
-                          Tuve un problema de ansiedad.
-                        </div>
-                      </div>
-
-                      <div class="chat-message-left pb-4">
-                        <div>
-                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:36 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
-                          <div class="fw-bold mb-1">Iván Aldair</div>
-                          Cuentame que es lo que pasa.
-                        </div>
-                      </div>
-
-                      <div class="chat-message-left pb-4">
-                        <div>
-                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:37 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
-                          <div class="fw-bold mb-1">Bertha Martin</div>
-                          Recuerda las respiraciones.
-                        </div>
-                      </div>
-
-                      <div class="chat-message-right pb-4">
-                        <div>
-                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:38 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
-                          <div class="fw-bold mb-1">Tú</div>
-                          No he podido domir debido al problema que le platiqué, me siento abrumado y desesperado.
-                        </div>
-                      </div>
-
-                      <div class="chat-message-left pb-4">
-                        <div>
-                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:39 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 ms-3">
-                          <div class="fw-bold mb-1">Iván Aldair</div>
-                          ¿Puedes acceder a una llamada?
-                        </div>
-                      </div>
-
-                      <div class="chat-message-right pb-4">
-                        <div>
-                          <img src="./img/perrito_38.jpg" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:40 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
-                          <div class="fw-bold mb-1">You</div>
-                          Si, doctor.
-                        </div>
-                      </div>
-
-                      <div class="chat-message-right pb-4">
-                        <div>
-                          <img src="./img/asdasd.png" class="rounded-circle me-1" width="40" height="40">
-                          <div class="text-muted small text-nowrap mt-2">2:41 am</div>
-                        </div>
-                        <div class="flex-shrink-1 bg-body-tertiary rounded py-2 px-3 me-3">
-                          <div class="fw-bold mb-1">Iván Aldair</div>
-                          Enseguida la realizo.
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="flex-grow-0 py-3 px-4 border-top">
-                    <div class="input-group">
-                      <input type="text" class="form-control form-control-sm" placeholder="Escribe un mensaje">
-                      <button class="btn btn-principal btn-sm"><i class="bi bi-send"></i></button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
-
 
 
 
@@ -754,13 +566,7 @@
                       Contraseña
                     </a>
                     <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
-                      Privacidad y Seguridad
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
                       Notificaciones
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
-                      Tu información
                     </a>
                     <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#" role="tab">
                       Borrar cuenta
@@ -944,6 +750,50 @@
       </main>
     </div>
   </div>
+
+  <script>
+    // Configuración de Firebase (REEMPLAZA con tus credenciales)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCoA7PD6tresjfdvhpnjHbJ58EirIODHFg",
+      authDomain: "aplicacionweb20sep.firebaseapp.com",
+      databaseURL: "https://aplicacionweb20sep-default-rtdb.firebaseio.com",
+      projectId: "aplicacionweb20sep",
+      storageBucket: "aplicacionweb20sep.appspot.com",
+      messagingSenderId: "490646915921",
+      appId: "1:490646915921:web:15055a7f0ad1acf06da170",
+      measurementId: "G-R9719EJQ53"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Verificar si hay un usuario autenticado
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // Usuario autenticado, obtener su información de la base de datos
+        var userId = user.uid;
+        firebase.database().ref("usuarios/" + userId).once("value").then(function (snapshot) {
+          if (snapshot.exists()) {
+            var username = snapshot.val().username;
+            document.getElementById("usernameDisplay").innerText = "Bienvenido, " + username;
+          }
+        });
+      } else {
+        // Si no hay usuario, redirigir a la página de login
+        window.location.href = "../login.html";
+      }
+    });
+
+    // Función para cerrar sesión
+    function logout() {
+      firebase.auth().signOut().then(function () {
+        window.location.href = "../login.html"; // Redirige al login tras cerrar sesión
+      }).catch(function (error) {
+        console.error("Error al cerrar sesión:", error);
+      });
+    }
+  </script>
+
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/secciones.js"></script>
   <script src="./js/calendar.js"></script>
